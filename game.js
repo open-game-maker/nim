@@ -40,9 +40,9 @@
         var signal = ogm.newArray(2);
         for (var index = 0; index < ogm.numberOfPlayer; index++) {
             //プレイヤーIDを送る（シグナルIDの-1番目をプレイヤーIDを送る用とする）
-            signal[index].push([ogm.PLAYER_ID_SIGNAL_ID, index])
+            signal[index].push([ogm.PLAYER_ID_SIGNAL_ID, index]);
             //プレイヤー数を送る（シグナルIDの-2番目をプレイヤー数を送る用とする）
-            signal[index].push([ogm.PLSYER_NUMBER_SIGNAL_ID, ogm.numberOfPlayer])
+            signal[index].push([ogm.PLSYER_NUMBER_SIGNAL_ID, ogm.numberOfPlayer]);
         }
 
         return ogm.createGameNextResult(
@@ -52,7 +52,7 @@
             null,
             signal,
             null
-        )
+        );
     },
     /**
      * ゲームの次状態の生成
@@ -66,12 +66,12 @@
         for (var playerIndex = 0; playerIndex < selectList.length; playerIndex++) {
             for (var selectIndex = 0; selectIndex < selectList[playerIndex].length; selectIndex++) {
                 var select = selectList[playerIndex][selectIndex].playersSelection;
-                state[1][select[0]] = state[1][select[0]] - select[1]  
+                state[1][select[0]] = state[1][select[0]] - select[1];
             }
         }
 
         //ゲームの勝者を表す変数（nullの場合はゲームは続く）
-        var winnerSet = null
+        var winnerSet = null;
 
         var finishFlag = true;
         //一つでも0でない、数字があるならば、ゲームは続く
@@ -109,7 +109,7 @@
             null,
             null,
             winnerSet
-        )
+        );
     },
     /**
      * 選択肢の制御
@@ -132,7 +132,7 @@
                 for (var count2 = 1; count2 <= state[count]; count2++) {
                     selections.push([
                         [count, count2], null
-                    ])
+                    ]);
                 }
             }
             return selections;
