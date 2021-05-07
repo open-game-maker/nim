@@ -7,7 +7,7 @@
      */
     drawCurrent: function(ui, chat) {
         if (chat == null) {
-            return
+            return;
         }
         for (var index = chat.length - 1; index >= 0; index--) {
             var shareState = chat[index].rawBody.shareState;
@@ -38,8 +38,8 @@
                                     ui.sendSlectionChat(null, 0, [i, list[0]], null)
                                 }
                                 , obj[0]
-                            )
-                            dialog.show(ui)
+                            );
+                            dialog.show(ui);
                         }
                         else {
                             ui.makeDialog("値が0より大きいものを選択してください", [], "Yes", "");
@@ -61,7 +61,7 @@
      */
     onClick: function(ui, pageX, pageY) {
         //クリックした位置に存在するviewのリストを取得
-        var ids = ui.getViews(pageX, pageY)
+        var ids = ui.getViews(pageX, pageY);
         ui.execViewProcess(ids);
     }
 })
