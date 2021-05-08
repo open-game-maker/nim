@@ -1,3 +1,4 @@
+//GAME_V3
 ({
     //ニム（石取りゲーム）のゲームを実行する
     /**
@@ -6,7 +7,7 @@
      * @param {*} random 乱数生成
      * @param {*} rule ルール
      */
-    initialize: function(ogm, random, rule) {
+    initialize: function(ogm, random, rule, mode) {
         //ゲームの状態
         var state;
 
@@ -38,11 +39,11 @@
 
         //ゲームの情報をプレイヤーに送信する
         var signal = ogm.newArray(2);
-        for (var index = 0; index < ogm.numberOfPlayer; index++) {
+        for (var index = 0; index < mode.numberOfPlayer; index++) {
             //プレイヤーIDを送る（シグナルIDの-1番目をプレイヤーIDを送る用とする）
             signal[index].push([ogm.PLAYER_ID_SIGNAL_ID, index]);
             //プレイヤー数を送る（シグナルIDの-2番目をプレイヤー数を送る用とする）
-            signal[index].push([ogm.PLSYER_NUMBER_SIGNAL_ID, ogm.numberOfPlayer]);
+            signal[index].push([ogm.PLAYER_NUMBER_SIGNAL_ID, mode.numberOfPlayer]);
         }
 
         return ogm.createGameNextResult(
@@ -61,7 +62,7 @@
      * @param {*} state ゲームの状態
      * @param {*} selectList プレイヤーの選択
      */
-    next: function(ogm, random, state, selectList) {
+    next: function(ogm, random, state, selectList, mode) {
         //プレイヤーの選択を処理
         for (var playerIndex = 0; playerIndex < selectList.length; playerIndex++) {
             for (var selectIndex = 0; selectIndex < selectList[playerIndex].length; selectIndex++) {
